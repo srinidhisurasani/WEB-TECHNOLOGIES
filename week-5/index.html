@@ -1,0 +1,59 @@
+<html>
+    <body bgcolor="navyblue" align="center">
+        <h2>EMAIL REGISTRATION</h2>
+        <form>
+        <input type="text" id="x" placeholder="UserName"><br><br>
+        <input type="email" id="y" placeholder="Email"><br><br>
+        <input type="number" id="z" placeholder="Mobile"><br><br>
+        <input type="button" value="Submit" onClick="return validate()">
+        </form>
+        <script>
+            function validate()
+            {
+            var un=document.getElementById("x");
+             var mail=document.getElementById("y");
+              var mn=document.getElementById("z");
+              var uname=un.value;
+              var email=mail.value;
+              var mobile=mn.value;
+              var unre=/^[a-zA-Z]+[0-9a-zA-Z._]*$/;
+              var ere=/^[a-zA-Z]+([\._]?\w+)*@\w+([\._]?\w+)*(\.\w{2,3})+$/;
+              var mre=/^[6-9][0-9]{9}$/;
+              if(unre.test(uname))
+              {
+                if(ere.test(email))
+              {
+                if(mre.test(mobile))
+              {
+                alert("Registered Successfully.");
+                return true;
+              }
+              else
+              {
+                return error(mn);
+              }
+              }
+              else
+              {
+                return errror(mail);
+              }
+              }
+              else
+              {
+                return error(un);
+              }
+            }
+              function error(ele)
+              {
+                alert("Invalid");
+                ele.style.border="3px solid red";
+                ele.value="";
+                ele.placeholder="Invalid";
+                ele.focus();
+                return false;
+              }
+        </script>
+    </body>
+    <p align="center">Name:S.Srinidhi Reddy</p>
+    <p align="center">Roll NO:24881A1259</p>
+</html>
