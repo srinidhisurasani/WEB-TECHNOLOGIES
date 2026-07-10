@@ -1,0 +1,63 @@
+<html>
+    <body>
+        <h1 align="center">SBI BANK EMI CALCULATOR</h1>
+        <style>
+            input[type=text]
+            {
+                width:100%;
+                border: 2px solid black;
+                background-color:yellow;
+                padding: 10px;
+                margin: 10px;
+                font-size: 20px;
+            }
+            input[type=number]
+            {
+                width:100%;
+                border: 2px solid black;
+                background-color:green;
+                padding: 10px;
+                margin: 10px;
+                font-size: 20px;
+            }
+            input[type=button]
+            {
+                border: 2px solid black;
+                background-color:blue;
+                padding: 10px;
+                margin: 10px;
+                font-size: 20px;
+            }
+        </style>
+        <form>
+            Name <input type="text" placeholder="enter your name"> <br>
+            Occupation <input type="text" placeholder="enter your occupation"> <br>
+            Loan amount <input type="number" id="amt" placeholder="enter loan amt"> <br>
+            Interest rate <input type="number" id="roi" placeholder="enter ROI"> <br>
+            Tenure <input type="number" id="t" placeholder="enter tenure in yr"> <br>
+            <input type="button" value="Calculate EMI" onclick="calculateEMI()">
+        </form>
+       
+        <h2 id="result"></h2>
+
+        <script>
+            function calculateEMI()
+            {
+                var A=Number(document.getElementById("amt").value);
+                var I=Number(document.getElementById("roi").value);
+                var T=Number(document.getElementById("t").value);
+               
+                var mir=(I/12)/100;
+                var months=T*12;
+               
+                var emi=(A*mir*Math.pow(1+mir,months))/(Math.pow(1 + mir, months) - 1);
+               
+                document.getElementById("result").innerText="Your EMI is: " + emi.toFixed(2);
+            }
+        </script>
+        <p>
+        Name:S.Srinidhi Reddy<br>
+        Roll No:24881A1259
+    </p>
+    </body>
+</html>
